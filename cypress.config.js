@@ -7,7 +7,7 @@ module.exports = defineConfig({
     openMode: 0,
   },
   env: {
-    apiUrl: "http://localhost:3001",
+    apiUrl: "https://serverest.dev",
     defaultEmail: process.env.DEFAULT_USER_EMAIL,
     defaultPassword: process.env.DEFAULT_USER_PASSWORD,
   },
