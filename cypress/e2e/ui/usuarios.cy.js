@@ -3,18 +3,8 @@ import { usuariosElements}  from '../../support/pages/usuarios/elements';
 
 context('Usuarios', () => {
   before(() => {
-  cy.request({
-    method: 'POST',
-    url: `${Cypress.env('apiUrl')}/usuarios`,
-    body: {
-      nome: 'QA Teste',
-      email: Cypress.env('defaultEmail'),
-      password: Cypress.env('defaultPassword'),
-      administrador: 'true'
-    },
-    failOnStatusCode: false
+    cy.criarUsuarioViaApi()
   });
-});
 
   beforeEach(() => {
     cy.visit('/')
