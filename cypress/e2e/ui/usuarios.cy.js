@@ -3,8 +3,8 @@ import { usuariosElements}  from '../../support/pages/usuarios/elements';
 
 context('Usuarios', () => {
   beforeEach(() => {
-    cy.visit('https://front.serverest.dev/')
-    cy.login('andre.santos@ambev.com', 'desafioambev')
+    cy.visit('/')
+    cy.login()
   })
 
   it('Cadastrar um usuário com sucesso', () => {
