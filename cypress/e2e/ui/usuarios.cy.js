@@ -6,13 +6,18 @@ context('Usuarios', () => {
     cy.criarUsuarioViaApi()
   });
 
+  after(() => {
+    cy.log()
+  })
+
   beforeEach(() => {
     cy.visit('/')
     cy.login()
   })
 
   it('Cadastrar um usuário com sucesso', () => {
-    cy.log('Passei aquiiii')
+    cy.cadastrarUsuario()
+    cy.contains('Lista dos usuários').should('be.visible');
   })
 
   it('Editar um usuário com sucesso', () => {
