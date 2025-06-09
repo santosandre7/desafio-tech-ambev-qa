@@ -2,6 +2,37 @@
 
 Projeto de automação de testes utilizando [Cypress](https://www.cypress.io/) para validar funcionalidades da aplicação [Serverest.dev](https://serverest.dev/).
 
+## 📋 Cenários de Teste - Gerenciamento de Usuários
+
+### Feature: Gerenciamento de Usuários
+
+#### Background
+```gherkin
+Given que estou logado no sistema
+````
+
+
+✅ Cenário 1: Cadastrar um usuário com sucesso
+```gherkin
+        Given que acesso o menu de cadastro de usuários
+        When cadastro um novo usuário
+        Then o usuário deve ser exibido na lista
+````
+✅ Cenário 2: Validar campos obrigatórios ao tentar cadastrar usuário sem preencher nenhum campo
+```gherkin
+        Given que acesso o menu de cadastro de usuários
+        When tento cadastrar sem preencher os campos
+        Then mensagens de obrigatoriedade devem ser exibidas
+````
+✅ Cenário 3: Excluir um usuário com sucesso
+```gherkin
+        Given que já existe um usuário cadastrado
+        When acesso o menu de listar usuários
+        And excluo o usuário
+        Then o usuário não deve mais estar na lista
+````
+
+
 ## 📁 Estrutura de Pastas
 
 
