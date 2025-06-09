@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "test:ui": "cypress run --spec 'cypress/e2e/ui/**/*'",
+    "test:api": "cypress run --spec 'cypress/e2e/api/**/*'",
+    "test:all": "cypress run",
+    "test:headed": "cypress open",
+    "test:specific": "cypress run --spec"
+}
+,
   "author": "Andre Santos",
   "license": "ISC",
   "description": "",

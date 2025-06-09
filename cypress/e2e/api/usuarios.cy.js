@@ -14,7 +14,6 @@ context('Usuarios', () => {
     });
   })
 
-
   it('Validar campos obrigatórios ao tentar cadastrar usuário sem preencher nenhum campo', () => {
     cy.request({
         method: 'POST',
