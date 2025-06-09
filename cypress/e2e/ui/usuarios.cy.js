@@ -13,12 +13,18 @@ context('Usuarios', () => {
   it('Cadastrar um usuário com sucesso', () => {
     cy.get(usuariosElements.menuCadastrarUsuarios).click();
     cy.cadastrarUsuario();
-    cy.contains('Lista dos usuários').should('be.visible');
+    cy.get('@email').then((email) => {
+      cy.contains('td', email, { timeout: 10000 }).should('exist');
+    })
   })
 
-  it('Verificar campos obrigatórios', () => {
-   
-    cy.log('Passei aquiiii')
+  it('Validar campos obrigatórios ao tentar cadastrar usuário sem preencher nenhum campo', () => {
+    cy.get(usuariosElements.menuCadastrarUsuarios).click();
+    cy.get(usuariosElements.botaoCadastrarUsuario).click();
+
+    cy.contains('Nome é obrigatório').should('be.visible')
+    cy.contains('Email é obrigatório').should('be.visible')
+    cy.contains('Password é obrigatório').should('be.visible')
   })
 
   it('Excluir um usuário com sucesso', () => {
