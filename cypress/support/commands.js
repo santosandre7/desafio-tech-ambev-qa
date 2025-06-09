@@ -75,3 +75,24 @@ Cypress.Commands.add('excluirUsuarioPorEmail', (email) => {
   cy.contains('td', email, { timeout: 10000 }).should('not.exist');
 
 });
+
+Cypress.Commands.add('getToken', () => {
+  return cy.request({
+    method: 'POST',
+    url: `${Cypress.env('apiUrl')}/login`,
+    body: {
+      email: Cypress.env('defaultEmail'),
+      password: Cypress.env('defaultPassword'),
+    }
+  }).then((res) => {
+    expect(res.status).to.eq(200);
+    return res.body.authorization; // retorna o token
+  });
+});
+
+Cypress.Commands.add('consultarUsuarioByID', (id) => {
+  cy.request({
+      method: 'GET',
+      url: `${Cypress.env('apiUrl')}/usuarios/${id}`,
+  })
+})
